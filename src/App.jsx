@@ -1,17 +1,17 @@
 import React from "react"
+import { Route, Routes } from "react-router-dom"
 import PokedexTitle from "./Components/PokedexTitle/PokedexTitle"
-import SearchBtn from "./Components/SearchBtn/SearchBtn"
+import PokemonDetails from "./Components/PokemonDetails/PokemonDetails"
 
 
 function App() {
 
   return (
-    <>
-      <div className="bg-[#F6E6CB] w-full h-screen px-28">
-        <PokedexTitle />
-        <SearchBtn />
-      </div>
-    </>
+      <Routes>
+        <Route path='/' element={<PokedexTitle />} />
+        <Route path='/pokemon/:id' element={<PokemonDetails />} />
+        <Route path='*' element={<h1>Not Found</h1>} />
+      </Routes>
   )
 }
 
