@@ -4,8 +4,8 @@ import usePokemonList from '../../hooks/usePokemonList';
 import PokemonCard from '../PokemonCard/PokemonCard';
 
 function PokemonList() {
-
-    const [pokemonListState, setPokemonList] = usePokemonList();
+  const DEFAULT_URL = "https://pokeapi.co/api/v2/pokemon";
+    const [pokemonListState, setPokemonList] = usePokemonList(DEFAULT_URL);
 
    
   return (

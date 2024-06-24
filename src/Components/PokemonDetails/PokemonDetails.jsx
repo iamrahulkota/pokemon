@@ -1,13 +1,14 @@
 import { Link, useParams } from 'react-router-dom';
 import usePokemon from '../../hooks/usePokemon';
+import PokemonCard from '../PokemonCard/PokemonCard'
 
 function PokemonDetails() {
-
+  
   const { id } = useParams();
-  const [pokemon] =usePokemon(id);
+  const [pokemon, pokemonListState] =usePokemon(id);
 
   return (
-    <div className='bg-[#F6E6CB] h-screen'>
+    <div className='bg-[#F6E6CB] h-full'>
     
     <h1 className='mx-60 py-12 font-medium text-2xl'>
       <Link to='/'>Back</Link>
@@ -28,6 +29,13 @@ function PokemonDetails() {
       </div>
         
     </div>}
+
+    <h2 className='text-2xl font-medium text-center '>Similar Pokemon</h2>
+    <div className='flex flex-wrap'>
+        {pokemonListState.pokemonList.length > 0 &&
+            pokemonListState.pokemonList.map(eachitem => <PokemonCard name={eachitem.name} imageurl={eachitem.image} id={eachitem.id}/>)
+        } 
+    </div>
     </div>
   )
 }
