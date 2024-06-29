@@ -1,11 +1,11 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import usePokemon from '../../hooks/usePokemon';
 import PokemonCard from '../PokemonCard/PokemonCard'
 
-function PokemonDetails() {
+function PokemonDetails( {pokemonName} ) {
   
-  const { id } = useParams();
-  const [pokemon, pokemonListState] =usePokemon(id);
+  
+  const [pokemon, pokemonListState] =usePokemon(pokemonName);
 
   return (
     <div className='bg-[#F6E6CB] h-full'>
